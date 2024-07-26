@@ -1,15 +1,15 @@
 from sqlalchemy import Column, Float, String, DateTime, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from .config import settings
+from app.config import settings
 
 
 Base = declarative_base()
 
 
 class KLine(Base):
-    __tablename__ = 'kline_data'
-    time = Column(DateTime, primary_key=True)
+    __tablename__ = 'klines'
+    timestamp = Column(DateTime, primary_key=True)
     symbol = Column(String, primary_key=True)
     interval = Column(String, primary_key=True)
     open = Column(Float)
