@@ -1,16 +1,18 @@
 FROM python:3.10-slim
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/quant-stream
 
 COPY . .
 
 RUN pip install -r requirements.txt
 #RUN pip install --no-cache-dir -r requirements.txt
 
-
 EXPOSE 8000
 
-COPY entrypoint.sh /usr/src/app
-RUN chmod +x /usr/src/app/entrypoint.sh
+COPY entrypoint.sh /usr/src/quant-stream
+RUN chmod +x /usr/src/quant-stream/entrypoint.sh
 
-CMD ["/usr/src/app/entrypoint.sh"]
+
+ENV PYTHONPATH=/usr/src/quant-stream
+
+CMD ["/usr/src/quant-stream/entrypoint.sh"]

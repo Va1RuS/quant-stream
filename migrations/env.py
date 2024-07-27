@@ -1,4 +1,4 @@
-from app.config import settings
+from shared.config import settings
 from app.models.kline import Base
 
 from logging.config import fileConfig
